@@ -42,9 +42,9 @@ const Hero: React.FC = () => {
               <div className="absolute w-[400px] h-[400px] border-2 border-dotted border-magenta-vibrant/10 rounded-full animate-[spin_20s_linear_infinite_reverse]"></div>
             </div>
             
-            {/* Floating Notification Cards */}
+            {/* Notification Cards (Animation Removed as requested) */}
             <div className="relative z-10 w-full max-w-sm">
-              <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl border border-gray-200 shadow-xl mb-4 animate-float transform translate-x-12">
+              <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl border border-gray-200 shadow-xl mb-4 transform translate-x-12">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-cyan-bright flex items-center justify-center">
                     <i className="fas fa-newspaper text-white"></i>
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl border border-gray-200 shadow-xl mb-4 animate-float-reverse transform -translate-x-8">
+              <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl border border-gray-200 shadow-xl mb-4 transform -translate-x-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-magenta-vibrant flex items-center justify-center">
                     <i className="fas fa-calendar-check text-white"></i>
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl border border-gray-200 shadow-xl animate-float delay-700 transform translate-x-4">
+              <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl border border-gray-200 shadow-xl transform translate-x-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-lime-green flex items-center justify-center">
                     <i className="fas fa-users text-white"></i>

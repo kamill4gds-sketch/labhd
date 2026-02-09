@@ -9,16 +9,27 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <div className="flex flex-col border-y border-cyan-bright py-1 px-2">
-              <div className="flex items-center">
-                <span className="text-3xl font-bold text-cyan-bright font-montserrat tracking-tighter">LAB</span>
-                <div className="ml-2 flex flex-col leading-none">
-                  <span className="text-[10px] font-bold text-magenta-vibrant uppercase">História do</span>
-                  <span className="text-[10px] font-bold text-magenta-vibrant uppercase">Direito</span>
+            <div className="flex items-center border-y border-cyan-bright/30 py-1 px-2">
+              {/* Graphic Logo Part */}
+              <div className="flex gap-1 items-center mr-3 scale-75 md:scale-100 origin-left">
+                {/* Book Representation */}
+                <div className="relative w-8 h-10">
+                   <div className="absolute inset-0 border-2 border-electric-blue rounded-sm transform -rotate-6"></div>
+                   <div className="absolute inset-0 border-2 border-cyan-bright rounded-sm transform translate-x-1"></div>
                 </div>
-                <div className="ml-3 text-lime-green rotate-[15deg] group-hover:rotate-0 transition-transform">
-                  <i className="fas fa-feather-pointed text-2xl"></i>
+                {/* Hourglass Representation */}
+                <div className="w-8 h-10 border-2 border-magenta-vibrant rounded-sm flex flex-col justify-between p-0.5">
+                   <div className="w-full h-1/2 border-b border-magenta-vibrant/30 bg-solar-yellow/20"></div>
+                   <div className="w-full h-1/2 bg-solar-yellow/10"></div>
                 </div>
+              </div>
+              
+              <div className="flex flex-col leading-none">
+                <div className="flex items-center">
+                   <span className="text-2xl font-extrabold text-electric-blue font-montserrat tracking-tighter">LABHD</span>
+                   <span className="ml-1 text-[10px] font-bold text-gray-400">UFPR</span>
+                </div>
+                <span className="text-[9px] font-bold text-magenta-vibrant uppercase tracking-tight">Laboratório de História do Direito</span>
               </div>
             </div>
           </Link>
