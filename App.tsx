@@ -29,7 +29,7 @@ const checkPreviewEnvironment = (): boolean => {
 
 const MainLanding: React.FC<{ initialTab?: string }> = ({ initialTab }) => {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen bg-white">
       <FloatingIcons />
       <Navbar />
       <Hero />
