@@ -3,51 +3,75 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
+  const menuItems = [
+    { label: 'Sobre', path: '/sobre' },
+    { label: 'Reuniões', path: '/reunioes' },
+    { label: 'Dicionário', path: '/dicionario' },
+    { label: 'Equipe', path: '/equipe' },
+  ];
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+        <div className="flex justify-between items-center h-24 md:h-28">
+          {/* Reconstructed Brand Logo with Precise Aesthetics */}
           <Link to="/" className="flex items-center group">
-            <div className="flex items-center border-y border-cyan-bright/30 py-1 px-2">
-              {/* Graphic Logo Part */}
-              <div className="flex gap-1 items-center mr-3 scale-75 md:scale-100 origin-left">
-                {/* Book Representation */}
-                <div className="relative w-8 h-10">
-                   <div className="absolute inset-0 border-2 border-electric-blue rounded-sm transform -rotate-6"></div>
-                   <div className="absolute inset-0 border-2 border-cyan-bright rounded-sm transform translate-x-1"></div>
+            <div className="flex flex-col items-center py-2 px-1 transition-transform duration-300 group-hover:scale-[1.01]">
+              <div className="h-[5px] w-full bg-[#139494] rounded-sm mb-1.5"></div>
+              <div className="flex items-center gap-3">
+                <div 
+                  className="text-[64px] font-black text-[#00d8e4] leading-[0.75] tracking-[-0.04em] flex items-end select-none" 
+                  style={{ 
+                    fontFamily: 'Montserrat, sans-serif',
+                    transform: 'scaleX(0.7)',
+                    transformOrigin: 'left bottom',
+                    marginRight: '-15px' 
+                  }}
+                >
+                  LAB
                 </div>
-                {/* Hourglass Representation */}
-                <div className="w-8 h-10 border-2 border-magenta-vibrant rounded-sm flex flex-col justify-between p-0.5">
-                   <div className="w-full h-1/2 border-b border-magenta-vibrant/30 bg-solar-yellow/20"></div>
-                   <div className="w-full h-1/2 bg-solar-yellow/10"></div>
+                <div className="flex flex-col items-start pt-1">
+                  <div className="w-16 h-6 mb-0 ml-1">
+                    <svg viewBox="0 0 120 40" fill="#a4d434" preserveAspectRatio="xMinYMid meet">
+                      <path d="M5,32 L15,28" stroke="#a4d434" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M15,28 C30,15 60,5 115,10 C90,35 40,40 15,28 Z" />
+                      <path d="M30,22 L35,12 M45,19 L52,10 M65,16 L75,8 M85,14 L95,8" stroke="white" strokeWidth="0.8" opacity="0.4" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col leading-[0.82] items-start" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+                    <span className="text-[30px] font-bold text-[#e4148c] uppercase tracking-tighter" style={{ transform: 'scaleX(0.55)', transformOrigin: 'left', marginLeft: '-12px' }}>
+                      HISTÓRIA
+                    </span>
+                    <span className="text-[30px] font-bold text-[#e4148c] uppercase tracking-tighter" style={{ transform: 'scaleX(0.55)', transformOrigin: 'left', marginLeft: '-12px' }}>
+                      DO DIREITO
+                    </span>
+                  </div>
                 </div>
               </div>
-              
-              <div className="flex flex-col leading-none">
-                <div className="flex items-center">
-                   <span className="text-2xl font-extrabold text-electric-blue font-montserrat tracking-tighter">LABHD</span>
-                   <span className="ml-1 text-[10px] font-bold text-gray-400">UFPR</span>
-                </div>
-                <span className="text-[9px] font-bold text-magenta-vibrant uppercase tracking-tight">Laboratório de História do Direito</span>
-              </div>
+              <div className="h-[5px] w-full bg-[#139494] rounded-sm mt-1.5"></div>
             </div>
           </Link>
 
-          {/* Links - Desktop */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-gray-800 hover:text-electric-blue font-medium transition-colors">Início</Link>
-            <Link to="/sobre" className="text-gray-800 hover:text-electric-blue font-medium transition-colors">Sobre</Link>
-            <Link to="/eventos" className="text-gray-800 hover:text-electric-blue font-medium transition-colors">Eventos</Link>
-            <Link to="/acervo" className="text-gray-800 hover:text-electric-blue font-medium transition-colors">Acervo</Link>
-            <button className="bg-electric-blue hover:bg-blue-700 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-electric-blue/30">
+          {/* Nav Items Updated */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {menuItems.map((item) => (
+              <Link 
+                key={item.path}
+                to={item.path} 
+                className="text-gray-700 hover:text-electric-blue font-bold text-xs uppercase tracking-widest transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link to="/leituras" className="text-gray-700 hover:text-electric-blue font-bold text-xs uppercase tracking-widest transition-colors">Leituras</Link>
+            <Link to="/contato" className="bg-[#0066cc] hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-electric-blue/20">
               Contato
-            </button>
+            </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button className="text-gray-800 p-2">
+          {/* Mobile Menu Toggle */}
+          <div className="lg:hidden">
+            <button className="text-gray-800 p-2 hover:bg-gray-50 rounded-full transition-colors">
               <i className="fas fa-bars text-2xl"></i>
             </button>
           </div>

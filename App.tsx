@@ -4,16 +4,11 @@ import { BrowserRouter, HashRouter, Routes, Route, Navigate } from 'react-router
 import FloatingIcons from './components/FloatingIcons';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Highlights from './components/Highlights';
-import Feed from './components/Feed';
+import TabSection from './components/TabSection';
 import InfoBar from './components/InfoBar';
 import Footer from './components/Footer';
 import Sitemap from './components/Sitemap';
 
-/**
- * Detecção de Ambiente: Verifica se a URL contém indicadores de proxies ou containers
- * comuns em ambientes de desenvolvimento em nuvem.
- */
 const checkPreviewEnvironment = (): boolean => {
   const indicators = [
     'googleusercontent',
@@ -32,14 +27,13 @@ const checkPreviewEnvironment = (): boolean => {
   );
 };
 
-const MainLanding: React.FC = () => {
+const MainLanding: React.FC<{ initialTab?: string }> = ({ initialTab }) => {
   return (
     <div className="relative min-h-screen">
       <FloatingIcons />
       <Navbar />
       <Hero />
-      <Highlights />
-      <Feed />
+      <TabSection activeTabId={initialTab as any} />
       <InfoBar />
       <Footer />
     </div>
@@ -48,14 +42,11 @@ const MainLanding: React.FC = () => {
 
 const App: React.FC = () => {
   const isPreview = useMemo(() => checkPreviewEnvironment(), []);
-  
-  // Seleção de Roteador baseado no ambiente
   const Router = isPreview ? HashRouter : BrowserRouter;
 
   return (
     <Router>
       <Routes>
-        {/* Redirecionamento Inteligente na Rota Raiz */}
         <Route 
           path="/" 
           element={
@@ -64,14 +55,19 @@ const App: React.FC = () => {
               : <Navigate to="/lp-video" replace />
           } 
         />
-        
-        {/* Rota principal da Landing Page */}
         <Route path="/lp-video" element={<MainLanding />} />
         
-        {/* Rota de Sitemap para facilitação em Dev */}
+        {/* Deep link routes for Preview and Navigation */}
+        <Route path="/sobre" element={<MainLanding initialTab="sobre" />} />
+        <Route path="/reunioes" element={<MainLanding initialTab="reunioes" />} />
+        <Route path="/dicionario" element={<MainLanding initialTab="dicionario" />} />
+        <Route path="/pesquisas" element={<MainLanding initialTab="pesquisas" />} />
+        <Route path="/transcricoes" element={<MainLanding initialTab="transcricoes" />} />
+        <Route path="/equipe" element={<MainLanding initialTab="equipe" />} />
+        <Route path="/leituras" element={<MainLanding initialTab="leituras" />} />
+        <Route path="/contato" element={<MainLanding initialTab="contato" />} />
+        
         <Route path="/sitemap" element={<Sitemap />} />
-
-        {/* Fallback para 404 - Redireciona conforme ambiente */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
