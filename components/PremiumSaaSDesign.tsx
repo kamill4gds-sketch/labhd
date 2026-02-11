@@ -2,9 +2,9 @@
 // This file is owned by you, feel free to edit as you see fit.
 import * as React from "react";
 import {
-  PlasmicFooter,
-  DefaultFooterProps
-} from "./plasmic/beginners_guide_website_in_3_minutes/PlasmicFooter";
+  PlasmicPremiumSaaSDesign,
+  DefaultPremiumSaaSDesignProps
+} from "./plasmic/beginners_guide_website_in_3_minutes/PlasmicPremiumSaaSDesign";
 import { HTMLElementRefOf } from "@plasmicapp/react-web";
 
 // Your component props start with props for variants and slots you defined
@@ -14,32 +14,35 @@ import { HTMLElementRefOf } from "@plasmicapp/react-web";
 // If you don't want to expose certain variants or slots as a prop, you can use
 // Omit to hide them:
 //
-// interface FooterProps extends Omit<DefaultFooterProps, "hideProps1"|"hideProp2"> {
+// interface PremiumSaaSDesignProps extends Omit<DefaultPremiumSaaSDesignProps, "hideProps1"|"hideProp2"> {
 //   // etc.
 // }
 //
-// You can also stop extending from DefaultFooterProps altogether and have
+// You can also stop extending from DefaultPremiumSaaSDesignProps altogether and have
 // total control over the props for your component.
-export interface FooterProps extends DefaultFooterProps {}
+export interface PremiumSaaSDesignProps extends DefaultPremiumSaaSDesignProps {}
 
-function Footer_(props: FooterProps, ref: HTMLElementRefOf<"div">) {
-  // Use PlasmicFooter to render this component as it was
+function PremiumSaaSDesign_(
+  props: PremiumSaaSDesignProps,
+  ref: HTMLElementRefOf<"div">
+) {
+  // Use PlasmicPremiumSaaSDesign to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicFooter are:
+  // Props you can pass into PlasmicPremiumSaaSDesign are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, we are just piping all FooterProps here, but feel free
+  // By default, we are just piping all PremiumSaaSDesignProps here, but feel free
   // to do whatever works for you.
 
-  return <PlasmicFooter root={{ ref }} {...props} />;
+  return <PlasmicPremiumSaaSDesign root={{ ref }} {...props} />;
 }
 
-const Footer = React.forwardRef(Footer_);
-export default Footer;
+const PremiumSaaSDesign = React.forwardRef(PremiumSaaSDesign_);
+export default PremiumSaaSDesign;

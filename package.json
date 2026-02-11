@@ -9,11 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@plasmicapp/cli": "^0.1.358",
+    "@plasmicapp/react-web": "^0.2.419",
+    "@plasmicpkgs/plasmic-nav": "^0.0.209",
+    "@plasmicpkgs/react-awesome-reveal": "^3.8.241",
     "@vitejs/plugin-react": "^5.1.4",
-    "vite": "^7.3.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.13.0",
+    "vite": "^7.3.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
